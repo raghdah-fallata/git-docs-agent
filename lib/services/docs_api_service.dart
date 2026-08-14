@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 
 import '../models/doc_log_entry.dart';
 
-// TODO: بدّل هذا الرابط بالـ endpoint 
-const String kApiEndpoint = '';
+// TODO: بدّل هذا الرابط بالـ endpoint
+const String kApiEndpoint = " ";
 
 class DocsApiException implements Exception {
   final String message;
