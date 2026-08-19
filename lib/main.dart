@@ -3,15 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'theme/app_colors.dart';
 import 'screens/docs_log_page.dart';
 
-/// نقطة الدخول الرئيسية للتطبيق، تقوم بتشغيل الـ Widget الأساسي [AutoDocsApp].
+/// نقطة الدخول الرئيسية للتطبيق.
+///
+/// تقوم بتشغيل ودجت [AutoDocsApp].
 void main() {
   runApp(const AutoDocsApp());
 }
 
-/// التطبيق الأساسي (Root Widget) لمشروع Auto Docs.
+/// الودجت الجذرية لتطبيق AutoDocs.
 ///
-/// يقوم هذا الكلاس بتهيئة السمات البصرية (Themes) مثل الألوان والخطوط،
-/// ويحدد [DocsLogPage] كشاشة رئيسية للتطبيق مع دعم الاتجاه من اليمين لليسار.
+/// مسؤولة عن إعداد الثيم العام (Theme)، الخطوط،
+/// وتحديد الصفحة الرئيسية للتطبيق مع دعم الاتجاه من اليمين إلى اليسار (RTL).
 class AutoDocsApp extends StatelessWidget {
   /// ينشئ نسخة من [AutoDocsApp].
   const AutoDocsApp({super.key});
