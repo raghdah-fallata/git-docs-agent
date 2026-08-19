@@ -4,14 +4,27 @@ import 'package:http/http.dart' as http;
 import '../models/doc_log_entry.dart';
 
 // TODO: بدّل هذا الرابط بالـ endpoint
+/// الرابط الأساسي لواجهة برمجة التطبيقات (API) المستخدمة لجلب سجلات التوثيق.
 const String kApiEndpoint = " ";
 
+/// استثناء مخصص لمعالجة الأخطاء المتعلقة بخدمة [DocsApiService].
 class DocsApiException implements Exception {
+  /// رسالة توضح سبب الخطأ.
   final String message;
   DocsApiException(this.message);
 }
 
+/// خدمة مسؤولة عن جلب وإدارة سجلات التوثيق من الخادم.
 class DocsApiService {
+  /// جلب قائمة بسجلات التوثيق من الـ API المحدد في [kApiEndpoint].
+  ///
+  /// تقوم هذه الدالة بإرسال طلب GET، وفك تشفير الاستجابة بصيغة JSON،
+  /// ثم تحويلها إلى قائمة من كائنات [DocLogEntry].
+  /// يتم فرز النتائج تنازلياً حسب الطابع الزمني (الأحدث أولاً).
+  ///
+  /// تُلقي [DocsApiException] في الحالات التالية:
+  /// * فشل الاتصال بالشبكة أو انتهاء المهلة (15 ثانية).
+  /// * إذا كانت حالة الاستجابة لا تساوي 200.
   Future<List<DocLogEntry>> fetchLog() async {
     final http.Response response;
     try {
